@@ -1,0 +1,110 @@
+body {
+	height: 0;
+}
+
+.login-page {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(38,121,9,1) 0%, rgba(15,118,221,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+#bg-canvas {
+    margin: -240px 0 0 0;
+    padding: 0;
+    border: 0;
+    position: fixed;
+    z-index: 0;
+    /* background-color: green; */
+}
+
+.login-box {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15%;
+}
+
+.login-box-body {
+    background: var(--bg-color-login);
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.login-box-body .ui.image {
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0 0 4px #1d5086;
+    padding: 8px 8px 10px;
+    margin: 0;
+    height: 170px !important;
+    width: 170px !important;
+    margin-top: -110px !important;
+}
+
+.ui.circular.image {
+	overflow: hidden;
+	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.3) !important;
+    background: var(--bg-color-logo);
+    margin-bottom: 30px;
+    margin-left: 25%;
+}
+
+.ui.circular.image, .ui.circular.images .image>* {
+    border-radius: 500rem !important;
+}
+
+.ui.circular.image img {
+	height: 100%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px !important;
+}
+
+.has-feedback .form-control {
+    border-radius: 5px !important;
+}
+
+.hover:hover {
+    -webkit-box-shadow: var(--main-hover);
+    -moz-box-shadow: var(--main-hover);
+    box-shadow: var(--main-hover);
+}
+
+.login-box, .register-box {
+    width: 340px;
+}
+
+.foot {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	word-spacing: 5px;
+	letter-spacing: 2px;
+	color: #fff;
+	font-size: 14px;
+}
+
+.navbar {
+	background: #4b5b50;
+}
+
+.navbar-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 0;
+    border-width: 1px 0 0;
+}
+
+.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.bg-nav {
+    background: #005183;
+}

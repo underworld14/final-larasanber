@@ -1,0 +1,6 @@
+:root {
+	--main-bg-color: linear-gradient(90deg,#4fcbce,#58bbed 30%,#7e9aff 58%,#ce8beb)!important;
+	--bg-color-login: rgba(75,91,80,1)!important;
+	--bg-color-logo: rgb(75, 91, 80) !important;
+	--main-hover: 0px 0px 16px 2px rgba(18,230,212,1);
+}

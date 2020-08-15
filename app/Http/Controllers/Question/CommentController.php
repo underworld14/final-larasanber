@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Question;
 
+use App\Http\Controllers\Controller;
 use App\QuestionComment;
 use Illuminate\Http\Request;
 

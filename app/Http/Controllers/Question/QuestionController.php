@@ -1,83 +1,58 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Question;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreQuestion;
 use App\Question;
+use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $questions = Question::latest()->get();
+        return view('question.question', compact('questions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $tags = Tag::get();
+        return view('question.create', compact('tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreQuestion $request)
     {
-        //
+        $question = new Question;
+        $question->title = $request->title;
+        $question->content = $request->content;
+        $question->created_by = Auth::id();
+        $question->save();
+
+        $question->tags()->attach($request->tags);
+
+        return redirect('/question')->with('status', 'Pertanyaan baru berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
     public function show(Question $question)
     {
-        //
+        dd($question);
+
+        return view('question.detail', compact('question'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Question $question)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Question $question)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Question $question)
     {
         //

@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+Route::get('/', 'TagController@index')->name('home');
+Route::get('/tag/{tag}', 'TagController@show');
+Route::get('/question', 'Question\QuestionController@index');
+Route::get('/question/{question}/detail', 'Question\QuestionController@show');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/tags', 'TagController@index');
-Route::get('/tags/{tag}', 'TagController@show');
+// authenticated routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/question/create', 'Question\QuestionController@create');
+    Route::post('/question', 'Question\QuestionController@store');
+});

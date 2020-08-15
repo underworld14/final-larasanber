@@ -13,7 +13,7 @@ class Question extends Model
 
     public function user() 
     {
-        return $this->belongsTo('App/User', 'created_by');
+        return $this->belongsTo('App\User', 'created_by');
     }
 
     public function tags() 
@@ -23,16 +23,16 @@ class Question extends Model
 
     public function answers() 
     {
-        return $this->hasMany('App/Answer');
+        return $this->hasMany('App\Answer');
     }
 
     public function comments() 
     {
-        return $this->hasMany('App/QuestionComment');
+        return $this->hasMany('App\QuestionComment');
     }
 
     public function votes()
     {
-        return $this->hasMany('App/QuestionVote');
+        return $this->hasMany('App\QuestionVote');
     }
 }

@@ -11,11 +11,14 @@ class TagController extends Controller
     {
         $tags = Tag::get();
 
-        return $tags;
+        return view('tags.tags', compact('tags'));
     }
 
     public function show(Tag $tag)
     {
-        return $tag;
+        return view('question.question', [
+            'tagname' => $tag->name,
+            'questions' => $tag->questions()->orderBy('created_at', 'desc')->get(),
+        ]);
     }
 }
