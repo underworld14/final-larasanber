@@ -9704,6 +9704,12 @@ a.dropdown-menu.text-white :hover {
   box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.75);
 }
 
+.box-shadows-kotak {
+  -webkit-box-shadow: 0px 14px 12px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 14px 12px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px 14px 12px -10px rgba(0,0,0,0.75);
+}
+
 .box-radius {
   border-radius: 50px 0;
 }
@@ -9728,6 +9734,20 @@ hr {
   border-top: 1px solid black !important;
 }
 
+.obj-center-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.obj-center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-footer {
   background-color: transparent !important;
   border-top: none !important;
@@ -9742,8 +9762,24 @@ hr {
   align-items: center;
 }
 
+.footquest-right-down {
+  margin-top: auto;
+}
+
 .table.dataTable {
   border-spacing: 0 20px !important;
+}
+
+.table-space {
+  border-spacing: 0 20px !important;
+}
+
+.bg-transparent-custom {
+  background: rgba(53, 57, 65, .6);
+}
+
+.bg-transparent-break {
+  background: rgba(53, 57, 65, .4);
 }
 
 

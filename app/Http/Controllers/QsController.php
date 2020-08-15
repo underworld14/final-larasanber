@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Question;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Answer;
+use App\Http\Requests\StoreAnswer;
 use App\Http\Requests\StoreQuestion;
+use App\Http\Requests\StoreQuestionComment;
 use App\Question;
+use App\QuestionComment;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class QuestionController extends Controller
+class QsController extends Controller
 {
     public function index()
     {
@@ -38,8 +41,6 @@ class QuestionController extends Controller
 
     public function show(Question $question)
     {
-        dd($question);
-
         return view('question.detail', compact('question'));
     }
 
@@ -56,5 +57,27 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         //
+    }
+
+    public function createanswer(Question $question, StoreAnswer $request)
+    {
+        $answer = new Answer([
+            'content' => $request->content,
+            'created_by' => Auth::id(),
+        ]);
+        $question->answers()->save($answer);
+
+        return back()->with('status', 'berhasil menambahkan jawaban !');
+    }
+
+    public function createcomment(Question $question, StoreQuestionComment $request) 
+    {
+        $comment = new QuestionComment([
+            'content' => $request->content,
+            'created_by' => Auth::id(),
+        ]);
+        $question->comments()->save($comment);
+
+        return back()->with('status', 'berhasil menambahkan comment !');
     }
 }
